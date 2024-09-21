@@ -31,6 +31,7 @@ def retrieval():
 
     prompt = PromptTemplate(template = prompt_template, input_variables = ["context", "question"])
     chain = load_qa_chain(llm, chain_type="stuff", prompt=prompt)
+    print("Successfully created a chain...")
     return chain
 
 
@@ -42,8 +43,7 @@ def similarity_search(query):
 
     vectordb = Chroma(persist_directory=persist_directory, embedding_function=embedding_function)
     docs = vectordb.similarity_search(query,k=5)
-    for doc in docs:
-        yield doc
+    return docs
 
 def response(docs,chain,query):
     response = chain(
@@ -55,6 +55,11 @@ def response(docs,chain,query):
 if __name__=="__main__":
 
     query = "Which are skills are mention in documents"
-    for i in similarity_search(query):
+    docs = similarity_search(query)
+    for i in docs:
         print(i)
         print("\n")
+    
+    chain = retrieval()
+    res = response(docs, chain, query)
+    print(res)
