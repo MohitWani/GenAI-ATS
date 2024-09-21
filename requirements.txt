@@ -5,5 +5,8 @@ sentence_transformers
 langchain_experimental
 semantic-text-splitter
 tokenizers
-
-
+transformers
+google-generativeai
+langchain_google_genai
+pypdf
+chromadb
