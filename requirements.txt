@@ -1,0 +1,9 @@
+langchain
+langchain_community
+pypdf2
+sentence_transformers
+langchain_experimental
+semantic-text-splitter
+tokenizers
+
+
