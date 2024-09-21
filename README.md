@@ -1,5 +1,3 @@
-Here's a template for the `README.md` file based on the steps provided:
-
 ---
 
 # Retrieval-Augmented Generation (RAG) Project
